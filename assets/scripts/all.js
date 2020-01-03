@@ -308,7 +308,7 @@ posters: {
         //   slides: '> section',
         //   startingSlide: $.urlParam('slide') ? $.urlParam('slide') : 0
         // });
-        $('.posters').empty().html(sessionsHTML);
+        $('.posters').css({ backgroundColor: 'hotpink' }).empty().html(sessionsHTML);
         sessionsHTML = '';
 
 
