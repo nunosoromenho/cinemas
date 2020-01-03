@@ -143,8 +143,6 @@ posters: {
       return this.pushStack(arr, "chunk", size);
     };
 
-    alert('Alerta 1');
-
     $.urlParam = function(name){
       var results = new RegExp("[?&]" + name + '=([^&#]*)').exec(window.location.href);
       if (results==null){
@@ -169,8 +167,6 @@ posters: {
       });
     };
 
-    alert('Alerta 2');
-
     var checkSessions = function (sessions) {
       var newSessions = sessions;
       //console.log(sessions);
@@ -180,8 +176,6 @@ posters: {
         previousSessions = newSessions;
       }
     };
-
-    alert('Alerta 3');
 
     var addSession = function (session) {
       var nrOfSessions = Object.keys(session.sessions).length;
@@ -221,10 +215,9 @@ posters: {
 
       });
 
-      return '<section class="poster container container--fixed" data-sessions="' + nrOfSessions + '"><div class="poster__image" style="background-image: url(http://10.133.37.3/backoffice/rest/img?movieId=' + session.id + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
+      return '<section class="poster container container--fixed" data-sessions="' + nrOfSessions + '"><div class="poster__image" style="background-image: url(); background-color: rgba(255,0,'+
+       Math.floor(Math.random()*255) +'"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
     };
-
-    alert('Alerta 4');
 
     var addSessions = function (sessions) {
       var sessionsArray = $(sessions).find('sessao');
@@ -322,8 +315,6 @@ posters: {
 
       }
     };
-
-    alert('Alerta 5');
 
     getSessions();
 
