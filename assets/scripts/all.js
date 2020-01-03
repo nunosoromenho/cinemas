@@ -297,10 +297,11 @@ posters: {
       });
 
       if ($('.posters')) {
-        $('.posters').empty().html(sessionsHTML).cycle({
-          slides: '> section',
-          startingSlide: $.urlParam('slide') ? $.urlParam('slide') : 0
-        });
+        // $('.posters').empty().html(sessionsHTML).cycle({
+        //   slides: '> section',
+        //   startingSlide: $.urlParam('slide') ? $.urlParam('slide') : 0
+        // });
+        $('.posters').empty().html(sessionsHTML);
         sessionsHTML = '';
 
 
