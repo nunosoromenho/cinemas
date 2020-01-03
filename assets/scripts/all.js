@@ -181,8 +181,6 @@ posters: {
       var nrOfSessions = Object.keys(session.sessions).length;
       var sessionsHTML = '';
 
-      alert('Alert 1');
-
       $.each(session.sessions, function(key, value) {
         var schedulesHTML = '';
         var lockNext = false;
@@ -212,8 +210,6 @@ posters: {
           schedulesHTML += '<li class="slots-session' + isActive +'"> <div class="slots-session__start">' + v.startTime + '</div><div class="slots-session__end">' + v.endTime + '</div></li>';
         });
 
-        alert('Alert 2');
-
         sessionsHTML += '<div class="session-row"> <div class="session-room">' + value[0].format + '<span>Sala ' + key + '</span></div><ul class="session-slots">' + schedulesHTML + '</ul> <div class="session-detail"> <div class="session-detail__type">' + session.type + '</div><div class="session-detail__target">' + session.target + '</div></div></div>';
 
 
@@ -241,8 +237,6 @@ posters: {
 
         var titleFormat = $this.find('titulo').text().split('(')[1];
         var lang = '';
-
-        alert('Alert 3');
 
         if (titleFormat) {
           titleFormat = titleFormat.toLowerCase();
@@ -323,6 +317,8 @@ posters: {
     };
 
     getSessions();
+
+    alert('Alert 1');
 
     setInterval(function() {
       getSessions();
