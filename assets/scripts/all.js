@@ -208,7 +208,7 @@ posters: {
 
       });
 
-      return '<section class="poster container container--fixed" data-sessions="' + nrOfSessions + '"><div class="poster__image" style="background-image: url(http://10.133.37.3/backoffice/rest/img?movieId=' + session.id + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
+      return '<section class="poster container container--fixed" data-sessions="' + nrOfSessions + '"><div class="poster__image" style="background-image: url(https://10.133.37.3/backoffice/rest/img?movieId=' + session.id + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
     }
 
     var addSessions = function (sessions) {
