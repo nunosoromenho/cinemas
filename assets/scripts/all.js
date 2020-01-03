@@ -1,15 +1,16 @@
 var nosInfoBilheteira = {
   debug: false,
-  log: function(what)   { if(FORM.debug) { console.log(what); } },
-  exists: function(el)  { if($(el).length > 0) { return true; } },
+  log: function (what) { if (FORM.debug) { console.log(what); } },
+  exists: function (el) { if ($(el).length > 0) { return true; } },
   ValidReCaptcha: false,
+
 infoBilheteira: {
   init: function () {
     $('.description-name').each(function (i, el) {
       $clamp(el, {
         clamp: 2
       });
-    })
+    });
   }
 },
 sessions: {
@@ -24,11 +25,12 @@ sessions: {
 
     $.fn.chunk = function (size) {
       var arr = [];
-      for (var i = 0; i < this.length; i += size) {
+      var i;
+      for (i = 0; i < this.length; i += size) {
         arr.push(this.slice(i, i + size));
       }
       return this.pushStack(arr, "chunk", size);
-    }
+    };
 
     var getSessions = function () {
       $.ajax({
@@ -42,7 +44,7 @@ sessions: {
           jqXHR.overrideMimeType('text/html;charset=iso-8859-1');
         }
       });
-    }
+    };
 
     var checkSessions = function (sessions) {
       var newSessions = sessions;
@@ -52,7 +54,7 @@ sessions: {
         addSessions(newSessions);
         previousSessions = newSessions;
       }
-    }
+    };
 
     var addSession = function (elem) {
       var $this = elem;
@@ -73,17 +75,21 @@ sessions: {
       inicio = [filmeHora, hourChar, filmeMinuto].join('');
 
       var occupation = Math.round(vendidos * 100 / disponiveis);
-      var occupationTitle = occupation > 0 ? occupation === 100 ? 'Completa' : occupation + '%' : 'Livre';
+      var occupationTitle = (
+        occupation > 0 ? (
+          occupation === 100 ? 'Completa' : occupation + '%'
+        ) : 'Livre'
+      );
 
       function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
       }
 
       return '<div class="session"><div class="session__info"><div class="info-time">' + inicio + '</div><div class="info-room">sala ' + sala + '</div></div><div class="session__description"><div class="description-name">' + titulo + '</div><div class="description-classification"><div class="description-classification__type">' + capitalizeFirstLetter(genero) + '</div><div class="description-classification__target">' + classeetaria + '</div><div class="description-classification__room-type -' + formato + '"></div></div></div><div class="session__occupation"><div class="occupation-title">' + occupationTitle + '</div><div class="occupation-bar"><span style="width: ' + occupation + '%"></span></div></div></div>';
-    }
+    };
 
     var addSessions = function (sessions) {
-      var sessions = $(sessions).find('sessao');
+      sessions = $(sessions).find('sessao');
       var sessionIndexStart = $('body').data('session-start') - 1;
       var sessionIndexEnd = $('body').data('session-end');
       // console.log(sessions);
@@ -98,7 +104,7 @@ sessions: {
         sessionsHTML = '';
       }
 
-    }
+    };
 
     getSessions();
 
@@ -130,14 +136,15 @@ posters: {
 
     $.fn.chunk = function (size) {
       var arr = [];
-      for (var i = 0; i < this.length; i += size) {
+      var i;
+      for (i = 0; i < this.length; i += size) {
         arr.push(this.slice(i, i + size));
       }
       return this.pushStack(arr, "chunk", size);
-    }
+    };
 
     $.urlParam = function(name){
-      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      var results = new RegExp("[?&]" + name + '=([^&#]*)').exec(window.location.href);
       if (results==null){
          return null;
       }
@@ -158,7 +165,7 @@ posters: {
           jqXHR.overrideMimeType('text/html;charset=iso-8859-1');
         }
       });
-    }
+    };
 
     var checkSessions = function (sessions) {
       var newSessions = sessions;
@@ -168,7 +175,7 @@ posters: {
         addSessions(newSessions);
         previousSessions = newSessions;
       }
-    }
+    };
 
     var addSession = function (session) {
       var nrOfSessions = Object.keys(session.sessions).length;
@@ -179,7 +186,7 @@ posters: {
         var lockNext = false;
 
         $.each(value, function(k, v) {
-          var currentDate = new Date;
+          var currentDate = new Date();
 
           var startTime = new Date(moment(v.startTime, "HH:mm").format());
           var endTime = new Date(moment(startTime).add(tolerance, 'seconds'));
@@ -208,8 +215,8 @@ posters: {
 
       });
 
-      return '<section class="poster container container--fixed" data-sessions="' + nrOfSessions + '"><div class="poster__image" style="background-image: url(https://10.133.37.3/backoffice/rest/img?movieId=' + session.id + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
-    }
+      return '<section class="poster container container--fixed" data-sessions="' + nrOfSessions + '"><div class="poster__image" style="background-image: url(http://10.133.37.3/backoffice/rest/img?movieId=' + session.id + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
+    };
 
     var addSessions = function (sessions) {
       var sessionsArray = $(sessions).find('sessao');
@@ -306,7 +313,7 @@ posters: {
 
 
       }
-    }
+    };
 
     getSessions();
 
