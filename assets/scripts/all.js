@@ -188,8 +188,8 @@ posters: {
         $.each(value, function(k, v) {
           var currentDate = new Date();
 
-          var startTime = new Date(moment(v.startTime, "HH:mm").format());
-          var endTime = new Date(moment(startTime).add(tolerance, 'seconds'));
+          var startTime = 'Thu Jan 09 2020 12:50:00 GMT+0000 (Western European Standard Time)' /*new Date(moment(v.startTime, "HH:mm").format())*/;
+          var endTime = 'Thu Jan 09 2020 13:05:00 GMT+0000 (Western European Standard Time)'/* new Date(moment(startTime).add(tolerance, 'seconds'))*/;
 
           var isActive = '';
 
