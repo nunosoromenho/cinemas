@@ -185,30 +185,30 @@ posters: {
         var schedulesHTML = '';
         var lockNext = false;
 
-        $.each(value, function(k, v) {
-          var currentDate = new Date();
+        // $.each(value, function(k, v) {
+        //   var currentDate = new Date();
 
-          var startTime = 'Thu Jan 09 2020 12:50:00 GMT+0000 (Western European Standard Time)' /*new Date(moment(v.startTime, "HH:mm").format())*/;
-          var endTime = 'Thu Jan 09 2020 13:05:00 GMT+0000 (Western European Standard Time)'/* new Date(moment(startTime).add(tolerance, 'seconds'))*/;
+        //   var startTime = 'Thu Jan 09 2020 12:50:00 GMT+0000 (Western European Standard Time)' /*new Date(moment(v.startTime, "HH:mm").format())*/;
+        //   var endTime = 'Thu Jan 09 2020 13:05:00 GMT+0000 (Western European Standard Time)'/* new Date(moment(startTime).add(tolerance, 'seconds'))*/;
 
-          var isActive = '';
+        //   var isActive = '';
 
-          if (lockNext) {
-            isActive = '';
-          } else {
-            if (currentDate > startTime && currentDate < endTime) {
-              isActive = ' -active';
-              lockNext = true;
-            } else if (currentDate < startTime) {
-              isActive = ' -active';
-              lockNext = true;
-            } else {
-              isActive = '';
-            }
-          }
+        //   if (lockNext) {
+        //     isActive = '';
+        //   } else {
+        //     if (currentDate > startTime && currentDate < endTime) {
+        //       isActive = ' -active';
+        //       lockNext = true;
+        //     } else if (currentDate < startTime) {
+        //       isActive = ' -active';
+        //       lockNext = true;
+        //     } else {
+        //       isActive = '';
+        //     }
+        //   }
 
-          schedulesHTML += '<li class="slots-session' + isActive +'"> <div class="slots-session__start">' + v.startTime + '</div><div class="slots-session__end">' + v.endTime + '</div></li>';
-        });
+        //   schedulesHTML += '<li class="slots-session' + isActive +'"> <div class="slots-session__start">' + v.startTime + '</div><div class="slots-session__end">' + v.endTime + '</div></li>';
+        // });
 
         sessionsHTML += '<div class="session-row"> <div class="session-room">' + value[0].format + '<span>Sala ' + key + '</span></div><ul class="session-slots">' + schedulesHTML + '</ul> <div class="session-detail"> <div class="session-detail__type">' + session.type + '</div><div class="session-detail__target">' + session.target + '</div></div></div>';
 
