@@ -79,9 +79,9 @@ var getSessions = function(data) {
   //   var startTime = getTimeWithChar(getNodeValue(el, 'horainicio'), hourChar);
   //   var endTime = getTimeWithChar(getNodeValue(el, 'horafim'), hourChar);
 
-    var foundSession = postersArray.find(function (e) {
+    var foundSession = postersArray.filter(function (e) {
       return e.title == title && e.lang == lang;
-    });
+    })[0];
 
     if (foundSession) {
   //     var indexOfSession = postersArray.indexOf(foundSession);
