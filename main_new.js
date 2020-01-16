@@ -48,13 +48,13 @@ var getNodeValue = function (parent, tag) {
  */
 
 var getSessions = function(data) {
-  // var xmlDoc = parseXML(data);
-  // var elements = xmlDoc.getElementsByTagName('sessao');
+  var xmlDoc = parseXML(data);
+  var elements = xmlDoc.getElementsByTagName('sessao');
   var postersEl = document.querySelector('.posters');
   // var hourChar = ':';
   var postersArray = new Array();
 
-  postersEl.innerHTML += 'Teste 4 ';
+  postersEl.innerHTML += 'Teste 5 ';
 
   // Array.prototype.forEach.call(elements, function(el, i){
   //   var id = getNodeValue(el, 'idfilme');
@@ -129,7 +129,7 @@ var getSessions = function(data) {
   // });
 
   postersEl.innerHTML += postersArray;
-  postersEl.innerHTML += ' Teste 4';
+  postersEl.innerHTML += ' Teste 5';
 };
 
 /*
