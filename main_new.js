@@ -52,9 +52,9 @@ var getSessions = function(data) {
   // var elements = xmlDoc.getElementsByTagName('sessao');
   var postersEl = document.querySelector('.posters');
   // var hourChar = ':';
-  // var postersArray = new Array();
+  var postersArray = new Array();
 
-  postersEl.innerHTML += 'Teste 3 ';
+  postersEl.innerHTML += 'Teste 4 ';
 
   // Array.prototype.forEach.call(elements, function(el, i){
   //   var id = getNodeValue(el, 'idfilme');
@@ -128,8 +128,8 @@ var getSessions = function(data) {
   //   }
   // });
 
-  // postersEl.innerHTML += postersArray;
-  postersEl.innerHTML += ' Teste 3';
+  postersEl.innerHTML += postersArray;
+  postersEl.innerHTML += ' Teste 4';
 };
 
 /*
