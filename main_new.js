@@ -54,7 +54,7 @@ var getSessions = function(data) {
   // var hourChar = ':';
   var postersArray = new Array();
 
-  postersEl.innerHTML += 'Teste 5 ';
+  postersEl.innerHTML += 'Teste 6 ';
 
   // Array.prototype.forEach.call(elements, function(el, i){
   //   var id = getNodeValue(el, 'idfilme');
@@ -128,8 +128,8 @@ var getSessions = function(data) {
   //   }
   // });
 
-  postersEl.innerHTML += postersArray;
-  postersEl.innerHTML += ' Teste 5';
+  postersEl.innerHTML += xmlDoc;
+  postersEl.innerHTML += ' Teste 6';
 };
 
 /*
