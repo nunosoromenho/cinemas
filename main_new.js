@@ -54,7 +54,7 @@ var getSessions = function(data) {
   // var hourChar = ':';
   var postersArray = new Array();
 
-  postersEl.innerHTML += 'Teste 7 ';
+  postersEl.innerHTML += 'Teste 8 ';
 
   Array.prototype.forEach.call(elements, function(el, i){
     var id = getNodeValue(el, 'idfilme');
@@ -63,27 +63,27 @@ var getSessions = function(data) {
   //   var type = getNodeValue(el, 'genero');
   //   var target = getNodeValue(el, 'classeetaria');
   //   var rawTitle = getNodeValue(el, 'titulo');
-  //   var title = getNodeValue(el, 'titulo').split('(')[0].trim();
-  //   var titleFormat = getNodeValue(el, 'titulo').split('(')[1];
-  //   var lang = '';
+    var title = getNodeValue(el, 'titulo').split('(')[0].trim();
+    var titleFormat = getNodeValue(el, 'titulo').split('(')[1];
+    var lang = '';
 
-  //   if (titleFormat) {
-  //     titleFormat = titleFormat.toLowerCase();
-  //     if (titleFormat.indexOf('dob') >= 0) {
-  //       lang = 'dob';
-  //     } else if (titleFormat.indexOf('leg') >= 0) {
-  //       lang = 'leg';
-  //     }
-  //   }
+    if (titleFormat) {
+      titleFormat = titleFormat.toLowerCase();
+      if (titleFormat.indexOf('dob') >= 0) {
+        lang = 'dob';
+      } else if (titleFormat.indexOf('leg') >= 0) {
+        lang = 'leg';
+      }
+    }
 
   //   var startTime = getTimeWithChar(getNodeValue(el, 'horainicio'), hourChar);
   //   var endTime = getTimeWithChar(getNodeValue(el, 'horafim'), hourChar);
 
-  //   var foundSession = postersArray.find(function (e) {
-  //     return e.title == title && e.lang == lang;
-  //   });
+    var foundSession = postersArray.find(function (e) {
+      return e.title == title && e.lang == lang;
+    });
 
-  //   if (foundSession) {
+    if (foundSession) {
   //     var indexOfSession = postersArray.indexOf(foundSession);
   //     if (postersArray[indexOfSession]['sessions'][screen]) {
   //       postersArray[indexOfSession]['sessions'][screen].push(
@@ -103,7 +103,7 @@ var getSessions = function(data) {
   //       ];
   //     }
 
-  //   } else {
+    } else {
 
       var obj = {};
 
@@ -125,12 +125,12 @@ var getSessions = function(data) {
 
   //     console.log(postersArray);
 
-  //   }
+    }
       postersArray.push(obj.id);
   });
 
   postersEl.innerHTML += postersArray;
-  postersEl.innerHTML += ' Teste 7';
+  postersEl.innerHTML += ' Teste 8';
 };
 
 /*
