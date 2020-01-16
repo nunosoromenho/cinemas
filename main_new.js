@@ -72,7 +72,7 @@ var getSessions = function(data) {
  */
 
 var request = new XMLHttpRequest();
-var path = '../data/bload2.xml';
+var path = './data/bload2.xml';
 
 request.overrideMimeType('text/plain;charset=iso-8859-1');
 
