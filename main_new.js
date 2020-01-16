@@ -54,10 +54,10 @@ var getSessions = function(data) {
   // var hourChar = ':';
   var postersArray = new Array();
 
-  postersEl.innerHTML += 'Teste 6 ';
+  postersEl.innerHTML += 'Teste 7 ';
 
-  // Array.prototype.forEach.call(elements, function(el, i){
-  //   var id = getNodeValue(el, 'idfilme');
+  Array.prototype.forEach.call(elements, function(el, i){
+    var id = getNodeValue(el, 'idfilme');
   //   var screen = getNodeValue(el, 'idsalafilme');
   //   var format = (getNodeValue(el, 'formato')) ? getNodeValue(el, 'formato') : '2d';
   //   var type = getNodeValue(el, 'genero');
@@ -105,9 +105,9 @@ var getSessions = function(data) {
 
   //   } else {
 
-  //     var obj = {};
+      var obj = {};
 
-  //     obj['id'] = id;
+      obj['id'] = id;
   //     obj['title'] = title;
   //     obj['lang'] = lang;
   //     obj['type'] = type;
@@ -126,10 +126,11 @@ var getSessions = function(data) {
   //     console.log(postersArray);
 
   //   }
-  // });
+      postersArray.push(obj.id);
+  });
 
-  postersEl.innerHTML += xmlDoc;
-  postersEl.innerHTML += ' Teste 6';
+  postersEl.innerHTML += postersArray;
+  postersEl.innerHTML += ' Teste 7';
 };
 
 /*
