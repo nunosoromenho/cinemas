@@ -1,6 +1,18 @@
+/*
+ * Add character to military time
+ * Type: Util
+ */
+
+var getTimeWithChar = function (time, char) {
+  var hour = time.slice(0, 2);
+  var min = time.slice(2);
+  return [hour, char, min].join('');
+}
+
 
 /*
  * Parse XML info
+ * Type: Util
  */
 
 var parseXML = function (data) {
@@ -19,6 +31,7 @@ var parseXML = function (data) {
 
 /*
  * Get Node Value
+ * Type: Util
  */
 
 var getNodeValue = function (parent, tag) {
@@ -38,6 +51,9 @@ var getSessions = function(data) {
   var xmlDoc = parseXML(data);
   var elements = xmlDoc.getElementsByTagName('sessao');
   var postersEl = document.querySelector('.posters');
+  var hourChar = ':';
+  var postersArray = [];
+
   Array.prototype.forEach.call(elements, function(el, i){
     var id = getNodeValue(el, 'idfilme');
     var screen = getNodeValue(el, 'idsalafilme');
@@ -57,15 +73,62 @@ var getSessions = function(data) {
         lang = 'leg';
       }
     }
-    console.log(id, screen, format, type, target, title, lang);
 
+    var startTime = getTimeWithChar(getNodeValue(el, 'horainicio'), hourChar);
+    var endTime = getTimeWithChar(getNodeValue(el, 'horafim'), hourChar);
 
-    postersEl.innerHTML += id + screen + format + type + target + title + lang;
+    var foundSession = postersArray.find(function (e) {
+      return e.title == title && e.lang == lang;
+    });
+
+    if (foundSession) {
+      var indexOfSession = postersArray.indexOf(foundSession);
+      if (postersArray[indexOfSession]['sessions'][screen]) {
+        postersArray[indexOfSession]['sessions'][screen].push(
+          {
+            format: format,
+            startTime: startTime,
+            endTime: endTime
+          }
+        );
+      } else {
+        postersArray[indexOfSession]['sessions'][screen] = [
+          {
+            format: format,
+            startTime: startTime,
+            endTime: endTime
+          }
+        ];
+      }
+
+    } else {
+
+      var obj = {};
+
+      obj['id'] = id;
+      obj['title'] = title;
+      obj['lang'] = lang;
+      obj['type'] = type;
+      obj['target'] = target;
+      obj['sessions'] = {};
+      obj['sessions'][screen] = [
+        {
+          format: format,
+          startTime: startTime,
+          endTime: endTime
+        }
+      ];
+
+      postersArray.push(obj);
+
+      console.log(postersArray);
+
+    }
   });
-};
 
-// var startTime = getTimeWithChar($this.find('horainicio').text(), hourChar);
-// var endTime = getTimeWithChar($this.find('horafim').text(), hourChar);
+  postersEl.innerHTML = postersArray;
+  postersEl.innerHTML += 'teste1';
+};
 
 /*
  * Get XML info
