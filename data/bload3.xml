@@ -7,13 +7,13 @@
     <idfilme>1983870</idfilme>
     <titulo>Joker ATMOS</titulo>
 
-    <formato>atmos</formato>
     <genero>Thriller</genero>
     <classeetaria>M14</classeetaria>
 
     <salas>
       <sala>
         <nome>6</nome>
+        <formato>atmos</formato>
         <sessoes>
           <sessao>
             <horainicio>1250</horainicio>

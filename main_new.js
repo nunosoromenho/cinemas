@@ -62,8 +62,7 @@ var getSessions = function(data) {
     var nrOfScreens = poster.getElementsByTagName('sala').length;
 
     var posterID = getNodeValue(poster, 'idfilme');
-    var posterTitle = getNodeValue(poster, 'titulo');
-    var posterFormat = getNodeValue(poster, 'formato');
+    // var posterTitle = getNodeValue(poster, 'titulo');
     var posterType = getNodeValue(poster, 'genero');
     var posterTarget = getNodeValue(poster, 'classeetaria');
 
@@ -73,6 +72,7 @@ var getSessions = function(data) {
       var sessions = screen.getElementsByTagName('sessao');
 
       var screenName = getNodeValue(screen, 'nome');
+      var screenFormat = getNodeValue(screen, 'formato');
 
       Array.prototype.forEach.call(sessions, function(session){
         var currentDate = new Date();
@@ -102,10 +102,12 @@ var getSessions = function(data) {
         schedulesHTML += '<li class="slots-session' + isActive +'"> <div class="slots-session__start">' + sessionStartTime + '</div><div class="slots-session__end">' + sessionEndTime + '</div></li>';
       });
 
-      sessionsHTML += '<div class="session-row"> <div class="session-room">' + posterFormat + '<span>Sala ' + screenName + '</span></div><ul class="session-slots">' + schedulesHTML + '</ul> <div class="session-detail"> <div class="session-detail__type">' + posterType + '</div><div class="session-detail__target">' + posterTarget + '</div></div></div>';
+      sessionsHTML += '<div class="session-row"> <div class="session-room">' + screenFormat + '<span>Sala ' + screenName + '</span></div><ul class="session-slots">' + schedulesHTML + '</ul> <div class="session-detail"> <div class="session-detail__type">' + posterType + '</div><div class="session-detail__target">' + posterTarget + '</div></div></div>';
     });
 
-    postersArray += '<section class="poster container container--fixed" data-sessions="' + nrOfScreens + '"><div class="poster__image" style="background-image: url(http://10.133.37.3/backoffice/rest/img?movieId=' + posterID + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
+    // postersArray += '<section class="poster container container--fixed" data-sessions="' + nrOfScreens + '"><div class="poster__image" style="background-image: url(http://10.133.37.3/backoffice/rest/img?movieId=' + posterID + ');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
+    postersArray += '<section class="poster container container--fixed" data-sessions="' + nrOfScreens + '"><div class="poster__image" style="background-color: rgba(255,0,'+
+    Math.floor(Math.random()*255) +');"></div><div class="poster__sessions"> <div class="sessions-wrapper double-sessions"> ' + sessionsHTML + '</div></div></section>';
 
     console.log(postersArray);
 
